@@ -6,6 +6,25 @@
     <title>Blog</title>
 </head>
 <body>
-    <h1>Mi blog</h1>
+    <h1>Mi blog</h1>   
+    <!--
+    <ul>
+        {% for post in posts %}
+        <li>Titulo del post:{{post.titulo}} , por:{{post.autor}} , contenido:{{post.cuerpo}} , Fecha:{{post.fechasP}} </li>
+        {% endfor %}
+    </ul>
+    -->
+
+    <h2>Lista de posts</h2>
+        {% for post in posts %}
+        <li>Titulo del post:{{post.titulo}}</li> <!--OJOO se le pone post. porque le pasamos una lista de -->
+        {% endfor %}
+
+
+    <h2>Lista de autores</h2>
+        {% for autor in autores %}
+        <li>{{autor}}</li>  <!--OJOOO que no es sin el post como arriba porque le estamos pasando una lista de string de autor-->
+        {% endfor %}
+
 </body>
 </html>
