@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% block titulo %}{{post.titulo}} ({{post.titulo}}){% endblock %}
+
+{% block contenido %}
+
+
+    <a href="{% url 'principal.py' %}">Volver</a>
+
+{% endblock %}

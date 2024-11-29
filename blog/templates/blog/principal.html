@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-</head>
-<body>
-    <h1>Mi blog</h1>   
+{% extends 'blog/base.html' %}
+{% block titulo %}Entradas del blog{% endblock %}
+
     <!--
     <ul>
         {% for post in posts %}
@@ -14,10 +8,10 @@
         {% endfor %}
     </ul>
     -->
-
+{% block contenido %}
     <h2>Lista de posts</h2>
         {% for post in posts %}
-        <li>Titulo del post:{{post.titulo}}</li> <!--OJOO se le pone post. porque le pasamos una lista de -->
+        <li><a href="{% url 'detalle post' pk=post.pk %}"> Titulo del post:{{post.titulo}} </a></li> <!--OJOO se le pone post. porque le pasamos una lista de -->
         {% endfor %}
 
 
@@ -26,5 +20,4 @@
         <li>{{autor}}</li>  <!--OJOOO que no es sin el post como arriba porque le estamos pasando una lista de string de autor-->
         {% endfor %}
 
-</body>
-</html>
+{% endblock %}

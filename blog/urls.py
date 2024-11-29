@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.principal, name='principal'),
-   # path('<int:pk>', views.detalle_post , name='detalle_post')
+    path('<int:pk>', views.detalle_post , name='detalle_post')   #Para pasar otro parametro en la url  <int:pk>/...
 ]
