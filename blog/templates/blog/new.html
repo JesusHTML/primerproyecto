@@ -3,7 +3,9 @@
 {% block titulo %}Nuevo post{% endblock %}
 {% block contenido %}
     <h2>Nuevo post</h2>
-    <form action="" method="post">
+    <form action="" method="post">  Al hacer click en submint la información se enviara con el metodo POST a la url que se indica en action.
+                                    Si action esta VACIO se enviara a la misma url en la que esta (en la que se ha ehco el get)
+                                    ejemplo de poner una url :  {% url 'post_new'  %}
         {% csrf_token %}
         {{form}}
         <input type="submit" value="agregar">

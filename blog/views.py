@@ -44,7 +44,8 @@ def post_new(request):
         # ftitulo = request.POST['titulo']
         # fcuerpo = request.POST['cuerpo']
         # fpublicacion = request.POST['fpublicado']
-        if form.is_valid():
+        if form.is_valid():    # CUANDO LLEGA POR POST
+            # FORM.SAVE()
             ftitulo = request.cleaned_data['titulo']
             fcuerpo = request.cleaned_data['cuerpo']
             fpublicacion = request.cleaned_data['fpublicado']
@@ -53,13 +54,13 @@ def post_new(request):
             #Post.objects.create(autor=1)
             Post.objects.create(titulo=ftitulo , autor=autor , cuerpo=fcuerpo , publicacion=fpublicacion)
             form = post_form()
-    else:
+    else:   # CUANDO LLEGA POR GET
         form = post_form()  # Dentro del parentesis instance=post
-        return render(request , 'blog/new.html' , {'form': form})
+
+        return render(request , 'blog/new.html' , {'form': form})   # puede ser que este mal 
     
 
     def post_edit(request , pk):
-        post = get_object_or_404(Post,pk=pk)
 
         if request.method == "POST":
             form = post_form(request.POST)
@@ -76,7 +77,9 @@ def post_new(request):
                 Post.objects.create(titulo=ftitulo , autor=autor , cuerpo=fcuerpo , publicacion=fpublicacion)
                 form = post_form()
         else:
-            form = post_form(initial=post.__dict__)                      #    MAPEO
+            #form = post_form(initial=post.__dict__)                      #    MAPEO
+            post = get_object_or_404(Post, pk=pk)
+            form = post_form_model(instance=post)
             return render(request , 'blog/new.html' , {'form': form})
     
 

@@ -12,4 +12,5 @@ urlpatterns = [
     path('autores/', views.autores , name='autores'),
     path('autor/<int:pk>/' , views.detalle_post , name='detalle_autor'),
     
+    
 ]
