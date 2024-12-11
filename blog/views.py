@@ -54,7 +54,7 @@ def post_new(request):
             Post.objects.create(titulo=ftitulo , autor=autor , cuerpo=fcuerpo , publicacion=fpublicacion)
             form = post_form()
     else:
-        form = post_form()
+        form = post_form()  # Dentro del parentesis instance=post
         return render(request , 'blog/new.html' , {'form': form})
     
 
